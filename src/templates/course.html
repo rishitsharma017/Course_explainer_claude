@@ -3,10 +3,25 @@
 {% block title %}{{ course.title }}{% endblock %}
 
 {% block content %}
-<div class="course-details">
-    <h1>{{ course.title }}</h1>
-    <p>{{ course.description }}</p>
-    <h2>Instructor: {{ course.instructor }}</h2>
-    <h3>Duration: {{ course.duration }}</h3>
+<div class="breadcrumb">
+  <a href="{{ url_for('index') }}">← Back to Courses</a>
+</div>
+
+<div class="course-detail">
+  <h1 class="course-detail-title">{{ course.title }}</h1>
+  <p class="course-detail-desc">{{ course.description }}</p>
+
+  <div class="course-detail-meta">
+    <div class="meta-card">
+      <span class="meta-label">Instructor</span>
+      <span class="meta-value">{{ course.instructor }}</span>
+    </div>
+    <div class="meta-card">
+      <span class="meta-label">Duration</span>
+      <span class="meta-value">{{ course.duration }}</span>
+    </div>
+  </div>
+
+  <a href="{{ url_for('index') }}" class="btn-secondary">Browse All Courses</a>
 </div>
 {% endblock %}
